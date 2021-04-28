@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { View,Text, StyleSheet, FlatList } from 'react-native';
 import ListItem from '../components/ListItem';
+import useFetch from '../hooks/useFetch';
 
 const styles = StyleSheet.create({
     container: {
@@ -16,20 +17,8 @@ const styles = StyleSheet.create({
 
 
 const Meals = ({ navigation }) => {
-    const [loading, setLoading] = useState(true);
-    const [meals, setMeals] = useState([]);
+    const { loading, data: meals } = useFetch('https://server-less-native-k9b1tdp6k-ysaiascampos.vercel.app/api/meals/');
 
-    const fetchMeals = async () => {
-        const response = await fetch('https://server-less-native-k9b1tdp6k-ysaiascampos.vercel.app/api/meals/');
-        const data =await response.json();
-        setMeals(data);
-        setLoading(false)
-    }
-
-    useEffect(() => {
-        fetchMeals();
-    },[])
-    
     return (
         <View style={styles.container}>
             {loading ? <Text>Cargando...</Text>:

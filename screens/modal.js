@@ -21,7 +21,7 @@ export default ({ navigation }) => {
                 <Text>{data.name}</Text>
                 <Text>{data.desc}</Text>
                 <Button title="Aceptar" onPress={()=>{
-                    fetch('https://server-less-native-k9b1tdp6k-ysaiascampos.vercel.app/api/orders',{
+                    fetch('https://server-less-native-ysaiascampos.vercel.app/api/orders',{
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'

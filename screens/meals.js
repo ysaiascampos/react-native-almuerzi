@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
 
 
 const Meals = ({ navigation }) => {
-    const { loading, data: meals } = useFetch('https://server-less-native-k9b1tdp6k-ysaiascampos.vercel.app/api/meals/');
+    const { loading, data: meals } = useFetch('https://server-less-native-ysaiascampos.vercel.app/api/meals/');
 
     return (
         <View style={styles.container}>

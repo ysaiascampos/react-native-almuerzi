@@ -3,6 +3,7 @@ import { createStackNavigator} from 'react-navigation-stack';
 import MealsScreen from './screens/meals';
 import LoginScreen from './screens/login';
 import RegisterScreen from './screens/register';
+import AuthLoading from "./screens/AuthLoading";
 import Modal from './screens/modal';
 
 const OnBoardingNavigator = createStackNavigator({
@@ -27,10 +28,11 @@ const RootStack = createStackNavigator({
 })
 
 const BaseStack = createSwitchNavigator({
+  AuthLoading,
   OnBoarding: OnBoardingNavigator,
   Root: RootStack,
 }, {
-  initialRouteName: 'OnBoarding'
+  initialRouteName: 'AuthLoading'
 })
 
 export default createAppContainer(BaseStack)
